@@ -6,15 +6,24 @@
 /*   By: aquinter <aquinter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 00:01:48 by aquinter          #+#    #+#             */
-/*   Updated: 2023/10/20 00:57:34 by aquinter         ###   ########.fr       */
+/*   Updated: 2023/10/24 22:44:44 by aquinter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 int	main(void)
 {
-	int i = ft_printf("hello world %% %c %s hahahah\n", 'a', "this is a test");
-	ft_printf("num: %d", i);
+	// int i = ft_printf("hello world %% %c %s hahahah\n", 'a', "this is a test");
+	// int i = ft_printf("hello1234567890%c\n", 'h');
+
+
+	// printf("\n%d", i); 
+
+	// printf("NULL %s NULL", NULL);
+	int i = printf("NULL %s NULL", NULL);
+	printf("   %d", i);
+	//ft_printf("mio string \n%s");
 	return (0);
 }

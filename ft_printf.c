@@ -6,7 +6,7 @@
 /*   By: aquinter <aquinter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 21:55:00 by aquinter          #+#    #+#             */
-/*   Updated: 2023/10/20 00:55:08 by aquinter         ###   ########.fr       */
+/*   Updated: 2023/10/24 22:30:56 by aquinter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	ft_print_factory(char const *str, va_list ptr, int *len)
 {
-	str++;
 	if (*str == 'd')
 		ft_putnbr_fd(va_arg(ptr, int), 1, len);
 	else if (*str == 'c')
@@ -28,7 +27,7 @@ void	ft_print_factory(char const *str, va_list ptr, int *len)
 int	ft_printf(char const *str, ...)
 {
 	va_list	ptr;
-	int	len;
+	int		len;
 
 	len = 0;
 	va_start(ptr, str);
@@ -36,12 +35,11 @@ int	ft_printf(char const *str, ...)
 	{
 		if (*str == '%')
 		{
+			str++;
 			ft_print_factory(str, ptr, &len);
 		}
 		else
-		{
 			ft_putchar_fd(*str, 1, &len);
-		}
 		str++;
 	}
 	va_end(ptr);
