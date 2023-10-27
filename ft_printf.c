@@ -6,24 +6,31 @@
 /*   By: aquinter <aquinter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 21:55:00 by aquinter          #+#    #+#             */
-/*   Updated: 2023/10/27 20:21:17 by aquinter         ###   ########.fr       */
+/*   Updated: 2023/10/28 00:57:09 by aquinter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	ft_print_factory(char const *str, va_list ptr, int *len)
+int	ft_print_factory(char const *str, va_list ptr, int *len)
 {
 	if (*str == 'd' || *str == 'i')
 		return (ft_putnbr(va_arg(ptr, int), len));
+	else if (*str == 'p')
+		return (ft_putptr(va_arg(ptr, unsigned long long int), len));
 	else if (*str == 'u')
-		ft_putnbr_unsigned(va_arg(ptr, unsigned int), len);
+		return (ft_putunsigned(va_arg(ptr, unsigned int), len));
+	else if (*str == 'X')
+		return (ft_puthexa(va_arg(ptr, unsigned int), len, 55));
+	else if (*str == 'x')
+		return (ft_puthexa(va_arg(ptr, unsigned int), len, 87));
 	else if (*str == 'c')
-		ft_putchar(va_arg(ptr, int), len);
+		return (ft_putchar(va_arg(ptr, int), len));
 	else if (*str == 's')
-		ft_putstr(va_arg(ptr, char *), len);
+		return (ft_putstr(va_arg(ptr, char *), len));
 	else if (*str == '%')
-		ft_putchar('%', len);
+		return (ft_putchar('%', len));
+	return (0);
 }
 
 int	ft_printf(char const *str, ...)
@@ -38,10 +45,14 @@ int	ft_printf(char const *str, ...)
 		if (*str == '%')
 		{
 			str++;
-			ft_print_factory(str, ptr, &len);
+			if (ft_print_factory(str, ptr, &len) == -1)
+				return (-1);
 		}
 		else
-			ft_putchar(*str, &len);
+		{
+			if (ft_putchar(*str, &len) == -1)
+				return (-1);
+		}
 		str++;
 	}
 	va_end(ptr);

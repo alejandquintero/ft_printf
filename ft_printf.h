@@ -6,7 +6,7 @@
 /*   By: aquinter <aquinter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 23:29:22 by aquinter          #+#    #+#             */
-/*   Updated: 2023/10/27 20:20:54 by aquinter         ###   ########.fr       */
+/*   Updated: 2023/10/28 01:13:45 by aquinter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@
 # include <unistd.h>
 # include <string.h>
 
-size_t	ft_putchar(char c, int *len);
-size_t	ft_putstr(char *s, int *len);
-size_t	ft_putnbr(int n, int *len);
-size_t	ft_putnbr_unsigned(unsigned int n, int *len);
-size_t	ft_printf(char const *str, ...);
+int		ft_putchar(char c, int *len);
+int		ft_putstr(char *s, int *len);
+int		ft_putnbr(int n, int *len);
+int		ft_putptr(unsigned long long int ptr, int *len);
+int		ft_putunsigned(unsigned int n, int *len);
+int		ft_printf(char const *str, ...);
+int		ft_puthexa(unsigned long long int n, int *len, int ascii);
 
 #endif

@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_unsigned.c                               :+:      :+:    :+:   */
+/*   ft_putunsigned.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aquinter <aquinter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 20:11:09 by aquinter          #+#    #+#             */
-/*   Updated: 2023/10/27 20:13:04 by aquinter         ###   ########.fr       */
+/*   Updated: 2023/10/28 00:46:46 by aquinter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void	ft_putnbr_unsigned(unsigned int n, int *len)
+int	ft_putunsigned(unsigned int n, int *len)
 {
 	if (n > 9)
 	{
-		ft_putnbr(n / 10, len);
-		ft_putchar(n % 10 + '0', len);
+		ft_putunsigned(n / 10, len);
+		if (ft_putchar(n % 10 + '0', len) == -1)
+			return (-1);
 	}
 	else
-		ft_putchar(n + '0', len);
+	{
+		if (ft_putchar(n + '0', len) == -1)
+			return (-1);
+	}
+	return (0);
 }

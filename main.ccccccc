@@ -6,7 +6,7 @@
 /*   By: aquinter <aquinter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 00:01:48 by aquinter          #+#    #+#             */
-/*   Updated: 2023/10/27 20:16:07 by aquinter         ###   ########.fr       */
+/*   Updated: 2023/10/28 01:07:39 by aquinter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,17 @@ int	main(void)
 	// int i = printf("NULL %s NULL", NULL);	
 	// int i = printf("NULL %s NULL", NULL);
 	//int	i = -2020;
-	ft_printf("%u", 2020);
+	// ft_printf("%x\n", 2020);
+	// ft_printf("%X", 2020);
+	// ft_printf("mio %X\n", 0x7fedcba1);
+	// printf("orig %X", 0x7fedcba1);
 	//ft_printf("mio string \n%s");
+
+
+	char str[] = "hola";
+
+	printf("puntero ori: %p\n", str);
+	ft_printf("puntero mio: %p", str);
+
 	return (0);
 }
