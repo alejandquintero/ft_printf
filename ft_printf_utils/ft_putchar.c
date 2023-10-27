@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aquinter <aquinter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 00:02:18 by aquinter          #+#    #+#             */
-/*   Updated: 2023/10/24 21:29:29 by aquinter         ###   ########.fr       */
+/*   Updated: 2023/10/27 20:19:54 by aquinter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void	ft_putchar_fd(char c, int fd, int *len)
+size_t	ft_putchar(char c, int *len)
 {
+	size_t bytes_writed;
+
+	bytes_writed = 0;
 	(*len)++;
-	write(fd, &c, 1);
+	bytes_writed = write(1, &c, 1);
+	return (bytes_writed);
 }

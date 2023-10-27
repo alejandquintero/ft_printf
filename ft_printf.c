@@ -6,22 +6,24 @@
 /*   By: aquinter <aquinter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 21:55:00 by aquinter          #+#    #+#             */
-/*   Updated: 2023/10/24 22:30:56 by aquinter         ###   ########.fr       */
+/*   Updated: 2023/10/27 20:21:17 by aquinter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_print_factory(char const *str, va_list ptr, int *len)
+size_t	ft_print_factory(char const *str, va_list ptr, int *len)
 {
-	if (*str == 'd')
-		ft_putnbr_fd(va_arg(ptr, int), 1, len);
+	if (*str == 'd' || *str == 'i')
+		return (ft_putnbr(va_arg(ptr, int), len));
+	else if (*str == 'u')
+		ft_putnbr_unsigned(va_arg(ptr, unsigned int), len);
 	else if (*str == 'c')
-		ft_putchar_fd(va_arg(ptr, int), 1, len);
+		ft_putchar(va_arg(ptr, int), len);
 	else if (*str == 's')
-		ft_putstr_fd(va_arg(ptr, char *), 1, len);
+		ft_putstr(va_arg(ptr, char *), len);
 	else if (*str == '%')
-		ft_putchar_fd('%', 1, len);
+		ft_putchar('%', len);
 }
 
 int	ft_printf(char const *str, ...)
@@ -39,7 +41,7 @@ int	ft_printf(char const *str, ...)
 			ft_print_factory(str, ptr, &len);
 		}
 		else
-			ft_putchar_fd(*str, 1, &len);
+			ft_putchar(*str, &len);
 		str++;
 	}
 	va_end(ptr);

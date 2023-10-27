@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_unsigned.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aquinter <aquinter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/20 00:02:38 by aquinter          #+#    #+#             */
-/*   Updated: 2023/10/24 22:50:33 by aquinter         ###   ########.fr       */
+/*   Created: 2023/10/27 20:11:09 by aquinter          #+#    #+#             */
+/*   Updated: 2023/10/27 20:13:04 by aquinter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void	ft_putstr_fd(char *s, int fd, int *len)
+void	ft_putnbr_unsigned(unsigned int n, int *len)
 {
-	int	i;
-
-	i = 0;
-	if (!s)
-		ft_putstr_fd("(null)", fd, len);
-	else
+	if (n > 9)
 	{
-		while (s[i] != '\0')
-		{
-			ft_putchar_fd(s[i], fd, len);
-			i++;
-		}
+		ft_putnbr(n / 10, len);
+		ft_putchar(n % 10 + '0', len);
 	}
+	else
+		ft_putchar(n + '0', len);
 }

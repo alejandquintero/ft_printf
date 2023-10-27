@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aquinter <aquinter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/20 00:01:48 by aquinter          #+#    #+#             */
-/*   Updated: 2023/10/24 22:44:44 by aquinter         ###   ########.fr       */
+/*   Created: 2023/10/20 00:02:38 by aquinter          #+#    #+#             */
+/*   Updated: 2023/10/27 19:49:17 by aquinter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
+#include "../ft_printf.h"
 
-int	main(void)
+void	ft_putstr(char *s, int *len)
 {
-	// int i = ft_printf("hello world %% %c %s hahahah\n", 'a', "this is a test");
-	// int i = ft_printf("hello1234567890%c\n", 'h');
+	int	i;
 
-
-	// printf("\n%d", i); 
-
-	// printf("NULL %s NULL", NULL);
-	int i = printf("NULL %s NULL", NULL);
-	printf("   %d", i);
-	//ft_printf("mio string \n%s");
-	return (0);
+	i = 0;
+	if (!s)
+		ft_putstr("(null)", len);
+	else
+	{
+		while (s[i] != '\0')
+		{
+			ft_putchar(s[i], len);
+			i++;
+		}
+	}
 }

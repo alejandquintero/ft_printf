@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aquinter <aquinter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 00:02:29 by aquinter          #+#    #+#             */
-/*   Updated: 2023/10/24 21:21:23 by aquinter         ###   ########.fr       */
+/*   Updated: 2023/10/27 20:22:15 by aquinter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void	ft_putnbr_fd(int n, int fd, int *len)
+size_t	ft_putnbr(int n, int *len)
 {
 	if (n == -2147483648)
-		ft_putstr_fd("-2147483648", fd, len);
+		ft_putstr("-2147483648", len);
 	else
 	{
 		if (n < 0)
 		{
 			n *= -1;
-			ft_putchar_fd('-', fd, len);
+			if (ft_putchar('-', len) == -1)
+				return (-1);
 		}
 		if (n > 9)
 		{
-			ft_putnbr_fd(n / 10, fd, len);
-			ft_putchar_fd(n % 10 + '0', fd, len);
+			ft_putnbr(n / 10, len);
+			ft_putchar(n % 10 + '0', len);
 		}
 		else
-			ft_putchar_fd(n + '0', fd, len);
+			ft_putchar(n + '0', len);
 	}
 }
