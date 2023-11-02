@@ -6,7 +6,7 @@
 /*   By: aquinter <aquinter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 00:02:18 by aquinter          #+#    #+#             */
-/*   Updated: 2023/10/27 23:39:26 by aquinter         ###   ########.fr       */
+/*   Updated: 2023/11/02 18:29:21 by aquinter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_putchar(char c, int *len)
 {
 	(*len)++;
-	if ((int)write(1, &c, 1) == -1)
+	if (write(1, &c, 1) == -1)
 		return (-1);
 	return (0);
 }

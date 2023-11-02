@@ -6,7 +6,7 @@
 /*   By: aquinter <aquinter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 00:02:29 by aquinter          #+#    #+#             */
-/*   Updated: 2023/10/27 23:32:50 by aquinter         ###   ########.fr       */
+/*   Updated: 2023/11/02 18:31:04 by aquinter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ int	ft_putnbr(int n, int *len)
 		}
 		if (n > 9)
 		{
-			ft_putnbr(n / 10, len);
+			if (ft_putnbr(n / 10, len) == -1)
+				return (-1);
 			if (ft_putchar(n % 10 + '0', len) == -1)
 				return (-1);
 		}

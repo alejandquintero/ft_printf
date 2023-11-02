@@ -6,7 +6,7 @@
 /*   By: aquinter <aquinter@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 23:29:22 by aquinter          #+#    #+#             */
-/*   Updated: 2023/10/28 01:13:45 by aquinter         ###   ########.fr       */
+/*   Updated: 2023/11/02 18:13:15 by aquinter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int		ft_putnbr(int n, int *len);
 int		ft_putptr(unsigned long long int ptr, int *len);
 int		ft_putunsigned(unsigned int n, int *len);
 int		ft_printf(char const *str, ...);
-int		ft_puthexa(unsigned long long int n, int *len, int ascii);
+int		ft_puthexa(unsigned int n, int *len, int ascii);
+int		ft_put_transform_hexa(unsigned long long int n, int *len, int ascii);
 
 #endif
